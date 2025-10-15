@@ -6,9 +6,9 @@ metadata:
   annotations:
     nginx.ingress.kubernetes.io/proxy-body-size: "10m"
 spec:
+  ingressClassName: nginx
   rules:
-    - host: challenge.local
-      http:
+    - http:
         paths:
           - path: /
             pathType: Prefix
@@ -16,4 +16,4 @@ spec:
               service:
                 name: app
                 port:
-                  number: 81
+                  number: 80
